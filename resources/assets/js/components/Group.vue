@@ -6,9 +6,11 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="row">
-                        <div class="col-sm-6">{{info.name_group}}</div>
-                        <div class="col-sm-2">   
+                        <div class="col-sm-5">{{info.name_group}}</div>                        
+                        <div class="col-sm-3">   
+                            <button type="button" v-on:click="toggleDiv()" class="btn btn-success btn-sm">Долги</button>
                             <button type="button" v-on:click="Run()" class="btn btn-success btn-sm">Расчитать</button>
+                            <button type="button" v-on:click="" class="btn btn-success btn-sm">Чат</button>
                         </div>     
                         <div class="col-sm-2">   
                             <button type="button" data-toggle="modal" data-target="#usersModal" class="btn btn-success btn-sm">Список участников</button>
@@ -20,86 +22,121 @@
                 </div>
 
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <p class="text-center">Покупки</p>                           
-                        </div>
-                        <div class="col-sm-4">
-                            <p class="text-center">Товары</p>
-                        </div>
+                    <div v-if="!showGroup" class="debts">
+                    	<div class="row ">
+                    		&nbsp;
+                    		<div class="col-sm-3 text-center">
+                    			Должник
+                    		</div>
+                    		<div class="col-sm-4 text-center">
+                    			Сумма
+                    		</div>
+                    		<div class="col-sm-4 text-center">
+                    			Получатель
+                    		</div>
+						</div>
+                    	<div class="row ">
+	                    	<div class="col-sm-12">	                    	
+								<ul class="list-group text-center">
+									<li class="list-group-item" v-for="(debt, key) in listDebts">
+									&nbsp;										
+										<div class="col-sm-3 text-center" >
+			                    			{{debt.name1}}
+			                    		</div>
+			                    		<div class="col-sm-4 text-center" style="border-left: solid black 1px;">
+			                    			{{debt.debit}}
+			                    		</div>
+			                    		<div class="col-sm-4 text-center" style="border-left: solid black 1px;">
+			                    			{{debt.name2}}
+			                    		</div>
+									</li>
+								</ul>
+							</div>
+						</div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-8" style="border-right: solid black 1px;">
-                            <div class="col-sm-6">
-                                <ul class="list-group">
-                                    <a href="#" class="list-group-item list-group-item-action" v-for="(buy, key) in buysList" v-on:click="ShowListProduct(buy.id, key);activeBuy = 'btn'+key; activeProd = ''; GetAllUsers();" :class="{active: activeBuy === 'btn'+key }">{{buy.name_buy}}</a>
-                                </ul>                            
-                                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#buyModal">Добавить покупку</button>
+                    <div v-if="showGroup" class="group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <p class="text-center">Покупки</p>                           
                             </div>
-                            <div class="col-sm-6">
-                                <div class="tab-pane " id="list-home" role="" aria-labelledby="list-home-list" v-for="(buy, key) in buysList" v-if="buy.ViewProducts==2">                                        
-                                    <ul class="list-group">
-                                        <a href="#" class="list-group-item list-group-item-action" v-for="(product, keyp) in products_list" v-on:click="activeProd = 'btnBuy'+key+'Prod'+keyp;GetListUsersToProducts(product.id);" :class="{active: activeProd === 'btnBuy'+key+'Prod'+keyp }">
-                                            {{product.name_products}} - {{product.price}}
-                                        </a>
-                                    </ul>     
-                                    <br>
-                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#productModal">Добавить товар</button>
-                                </div>                            
+                            <div class="col-sm-4">
+                                <p class="text-center">Товары</p>
                             </div>
                         </div>
-                        <div class="col-sm-4" style="border-left: solid black 1px;">
-                            <div class="tab-pane active" id="m_widget4_tab1_content">
-                                <div class="m-widget4 m-widget4--progress">
-                                    <button type="button" class="btn btn-success btn-sm" v-if="activeBuy && !activeProd" v-on:click="SavePrice()">Сохранить</button>
-                                    <div v-for="(user, key) in allusers_groupe" v-if="activeBuy && !activeProd">
-                                        <div class="m-widget4__item">
-                                            <div class="m-widget4__img m-widget4__img--pic">
-                                                <img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                        <div class="row">
+                            <div class="col-sm-8" style="border-right: solid black 1px;">
+                                <div class="col-sm-6">
+                                    <ul class="list-group">
+                                        <a href="#" class="list-group-item list-group-item-action" v-for="(buy, key) in buysList" v-on:click="ShowListProduct(buy.id, key);activeBuy = 'btn'+key; activeProd = ''; GetAllUsers();" :class="{active: activeBuy === 'btn'+key }">{{buy.name_buy}}</a>
+                                    </ul>                            
+                                    <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#buyModal">Добавить покупку</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="tab-pane " id="list-home" role="" aria-labelledby="list-home-list" v-for="(buy, key) in buysList" v-if="buy.ViewProducts==2">                                        
+                                        <ul class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action" v-for="(product, keyp) in products_list" v-on:click="activeProd = 'btnBuy'+key+'Prod'+keyp;GetListUsersToProducts(product.id);" :class="{active: activeProd === 'btnBuy'+key+'Prod'+keyp }">
+                                                {{product.name_products}} - {{product.price}}
+                                                <button type="button" class="btn btn-danger btn-sm float-right">Удалить</button>
+                                            </a>                                            
+                                        </ul>     
+                                        <br>
+                                        <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#productModal">Добавить товар</button>
+                                    </div>                            
+                                </div>
+                            </div>
+                            <div class="col-sm-4" style="border-left: solid black 1px;">
+                                <div class="tab-pane active" id="m_widget4_tab1_content">
+                                    <div class="m-widget4 m-widget4--progress">
+                                        <button type="button" class="btn btn-success btn-sm" v-if="activeBuy && !activeProd" v-on:click="SavePrice()">Сохранить</button>
+                                        <div v-for="(user, key) in allusers_groupe" v-if="activeBuy && !activeProd">
+                                            <div class="m-widget4__item">
+                                                <div class="m-widget4__img m-widget4__img--pic">
+                                                    <img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                                                </div>
+                                                <div class="m-widget4__info">
+                                                    <span class="m-widget4__title">
+                                                        {{user.name}}
+                                                    </span>
+                                                </div>
+                                                <div class="m-widget4__progress">
+                                                    <div class="">
+                                                        <input type="text" class="form-control" v-bind:id="'price'+key" placeholder="Price" v-model="listPrice[key]">
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="m-widget4__info">
-                                                <span class="m-widget4__title">
-                                                    {{user.name}}
-                                                </span>
-                                            </div>
-                                            <div class="m-widget4__progress">
-                                                <div class="">
-                                                    <input type="text" class="form-control" v-bind:id="'price'+key" placeholder="Price" v-model="listPrice[key]">
+                                        </div>
+                                        <div v-for="(user, key) in users_to_produtcs" v-if="activeProd">
+                                            <div class="m-widget4__item">
+                                                <div class="m-widget4__img m-widget4__img--pic">
+                                                    <img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                                                </div>
+                                                <div class="m-widget4__info">
+                                                    <span class="m-widget4__title">
+                                                        {{user.name}}
+                                                    </span>
+                                                </div>
+                                                <div class="m-widget4__progress">
+                                                </div>
+                                                <div class="m-widget4__ext">
+                                                    <a href="#" class="m-btn m-btn--hover-brand m-btn--pill btn btn-sm btn-secondary">
+                                                        <toggle-button v-if="user.status == 2" v-bind:id="'request'+user.id_products_to_users" :value="false"
+                                                            v-on:change="SetStatusProd(user.id_products_to_users, $event);"
+                                                           color="#82C7EB"
+                                                           :sync="true"
+                                                           :labels="true"/>
+                                                        <toggle-button v-if="user.status == 1" v-bind:id="'request'+user.id_products_to_users" :value="true"
+                                                            v-on:change="SetStatusProd(user.id_products_to_users, $event);"
+                                                           color="#82C7EB"
+                                                           :sync="true"
+                                                           :labels="true"/>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div v-for="(user, key) in users_to_produtcs" v-if="activeProd">
-                                        <div class="m-widget4__item">
-                                            <div class="m-widget4__img m-widget4__img--pic">
-                                                <img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-                                            </div>
-                                            <div class="m-widget4__info">
-                                                <span class="m-widget4__title">
-                                                    {{user.name}}
-                                                </span>
-                                            </div>
-                                            <div class="m-widget4__progress">
-                                            </div>
-                                            <div class="m-widget4__ext">
-                                                <a href="#" class="m-btn m-btn--hover-brand m-btn--pill btn btn-sm btn-secondary">
-                                                    <toggle-button v-if="user.status == 2" v-bind:id="'request'+user.id_products_to_users" :value="false"
-                                                        v-on:change="SetStatusProd(user.id_products_to_users, $event);"
-                                                       color="#82C7EB"
-                                                       :sync="true"
-                                                       :labels="true"/>
-                                                    <toggle-button v-if="user.status == 1" v-bind:id="'request'+user.id_products_to_users" :value="true"
-                                                        v-on:change="SetStatusProd(user.id_products_to_users, $event);"
-                                                       color="#82C7EB"
-                                                       :sync="true"
-                                                       :labels="true"/>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
-                            </div>
-                        </div>  
+                            </div>  
+                        </div>
                     </div>
                 </div>
             </div>
@@ -111,20 +148,28 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="exampleModalLabel">
-                        Add product
+                        Добавить товар
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </h4>                        
                 </div>
-                <div class="modal-body">                    
-                        <input placeholder="Name" type="text" class="form-control" v-model='productName'>
-                        <input placeholder="Description" type="text" class="form-control" v-model='productDesc'>
-                        <input placeholder="Price" type="text" class="form-control" v-model='productPrice'>
+                <div class="modal-body">    
+                    <div class="row">
+                        <input placeholder="Название" type="text" class="form-control" v-model='productName'>
+                    </div>   
+                    <br> 
+                    <div class="row">            
+                        <input placeholder="Описание" type="text" class="form-control" v-model='productDesc'>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <input placeholder="Цена" type="text" class="form-control" v-model='productPrice'>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" v-on:click="AddProduct(actionBuy, info.id)">Add</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-primary" v-on:click="AddProduct(actionBuy, info.id)">Добавить</button>
                 </div>
             </div>
         </div>
@@ -135,18 +180,18 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="exampleModalLabel">
-                        Add buy
+                        Добавить покупку
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </h4>                        
                 </div>
                 <div class="modal-body">                    
-                        <input placeholder="Name" type="text" class="form-control" v-model='nameBuy'>
+                        <input placeholder="Название" type="text" class="form-control" v-model='nameBuy'>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" v-on:click="AddBuy(info.id)">Add</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-primary" v-on:click="AddBuy(info.id)">Добавить</button>
                 </div>
             </div>
         </div>
@@ -157,7 +202,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="exampleModalLabel">
-                        List users for groupe
+                        Участники группы
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -180,7 +225,7 @@
                                     </div>
                                     <div class="m-widget4__ext">
                                         <a href="#" class="m-btn m-btn--hover-brand m-btn--pill btn btn-sm btn-secondary">
-                                            <button type="button" class="btn btn-primary" v-on:click="DelOfGroup(user.id_groupe_to_users, key)">DEL</button>
+                                            <button type="button" class="btn btn-primary" v-on:click="DelOfGroup(user.id_groupe_to_users, key)">Удалить</button>
                                         </a>
                                     </div>
                                 </div>
@@ -189,7 +234,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
                 </div>
             </div>
         </div>
@@ -200,7 +245,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="exampleModalLabel">
-                        Send mail for your friends
+                        Друзья
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -223,7 +268,7 @@
                                     </div>
                                     <div class="m-widget4__ext">
                                         <a href="#" class="m-btn m-btn--hover-brand m-btn--pill btn btn-sm btn-secondary">
-                                            <button type="button" class="btn btn-primary" v-on:click="AddToGroupe(friend.id, info.id, key)" v-if="friend.status_in_groupe==1">ADD</button>
+                                            <button type="button" class="btn btn-primary" v-on:click="AddToGroupe(friend.id, info.id, key)" v-if="friend.status_in_groupe==1">Добавить</button>
                                         </a>
                                     </div>
                                 </div>
@@ -232,7 +277,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
                 </div>
             </div>
         </div>
@@ -251,6 +296,7 @@
         props:['group'],  
         data() {
             return {
+                showGroup: true,
                 info: [],
                 friends: [],
                 users_groupe: [],
@@ -270,6 +316,7 @@
                 users_to_produtcs: [],
                 actionCheck: '',
                 listPrice: [],
+                listDebts: [],
             }
         },
         mounted() {
@@ -405,6 +452,19 @@
                 axios.post('/setPay', {id_group:this.info.id})
                 .then(respons => {
                 }); 
+            }, 
+
+            toggleDiv() {
+                if(this.showGroup == true) {
+                    axios.post('/getPay', {id_group:this.info.id})
+                    .then(respons => {
+                        this.listDebts = respons.data;
+                        console.log(respons.data);
+                    }); 
+                    this.showGroup = false;
+                } else {
+                    this.showGroup = true;
+                }
             }
 
         }        

@@ -1,5 +1,6 @@
 <template>
 <div class="container">
+    <br>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -8,7 +9,7 @@
                         <div class="m-portlet__head-caption">
                             <div class="m-portlet__head-title">
                                 <h3 class="m-portlet__head-text">
-                                    User Progress
+                                    Список
                                 </h3>
                             </div>
                         </div>
@@ -16,17 +17,17 @@
                             <ul class="nav nav-pills nav-pills--brand m-nav-pills--align-right m-nav-pills--btn-pill m-nav-pills--btn-sm" role="tablist">
                                 <li class="nav-item m-tabs__item active">
                                     <a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_widget4_tab1_content" role="tab" v-on:click="Get_Friends">
-                                        Friends
+                                        Друзья
                                     </a>
                                 </li>
                                 <li class="nav-item m-tabs__item">
                                     <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_widget4_tab2_content" role="tab" v-on:click="Get_Request_Out">
-                                        Request(send)
+                                        Исходящие заявки
                                     </a>
                                 </li>
                                 <li class="nav-item m-tabs__item">
                                     <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_widget4_tab3_content" role="tab" v-on:click="Get_Request_In">
-                                        Request(in)
+                                        Входящие заявки
                                     </a>
                                 </li>
                             </ul>
@@ -50,7 +51,7 @@
                                             </div>
                                             <div class="m-widget4__ext">
                                                 <a href="#" class="m-btn m-btn--hover-brand m-btn--pill btn btn-sm btn-secondary">
-                                                    Deleted
+                                                    Удалить
                                                 </a>                                                
                                             </div>
                                         </div>
@@ -73,7 +74,7 @@
                                             </div>
                                             <div class="m-widget4__ext">
                                                 <a href="#" class="m-btn m-btn--hover-brand m-btn--pill btn btn-sm btn-secondary">
-                                                    Cancel
+                                                    Отменить
                                                 </a>
                                             </div>
                                         </div>
@@ -96,10 +97,10 @@
                                             </div>
                                             <div class="m-widget4__ext">
                                                 <a href="#" class="m-btn m-btn--hover-brand m-btn--pill btn btn-sm btn-secondary">
-                                                    Cancel
+                                                    Отменить
                                                 </a>
                                                 <a href="#" class="m-btn m-btn--hover-brand m-btn--pill btn btn-sm btn-secondary" v-on:click="AddFriend(friend.id_request)">
-                                                    Add
+                                                    Добавить
                                                 </a>
                                             </div>
                                         </div>

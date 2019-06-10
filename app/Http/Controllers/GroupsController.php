@@ -79,6 +79,13 @@ class GroupsController extends Controller
         return $list;
     }
 
+    public function getDebts(Request $request) {
+        $id_group = $request->id_group;
+        $debts = App\Debts::getDebtsForGroup($id_group);
+
+        return $debts;
+    }
+
     public function setPay(Request $request) {
         $id_group = $request->id_group;
         $buys = App\Buys::GetBuysForGroup_Pay($id_group);
@@ -154,6 +161,8 @@ class GroupsController extends Controller
                 $minuss[$key] = $pay_user;
             }
         }
+
+
 
         $debt = array();
 

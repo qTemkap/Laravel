@@ -223,8 +223,8 @@ a.message_new {
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}">Вход</a></li>
+                            <li><a href="{{ route('register') }}">Регистрация</a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
@@ -235,7 +235,7 @@ a.message_new {
                                     
                                     <li>
                                         <a href="{{ route('home') }}">
-                                            Home
+                                            Домашняя
                                         </a>
                                     </li>
                                    <!--  <li>
@@ -245,17 +245,22 @@ a.message_new {
                                     </li> -->
                                     <li>
                                         <a href="/friends">
-                                            Fiends
+                                            Друзья
                                         </a>
                                     </li>
                                     <li>
                                         <a href="/search">
-                                            Seacrh
+                                            Поиск
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/debits">
+                                            Долги
                                         </a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                            Logout
+                                            Выход
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
@@ -272,6 +277,7 @@ a.message_new {
 
         <!-- Page Content -->
         <main class="py-3">
+        	<br>
             @yield('content')
         </main>
         <!-- /#page-content-wrapper -->

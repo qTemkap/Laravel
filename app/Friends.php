@@ -23,7 +23,7 @@ class Friends extends Model
 	}
 
 	public static function deleteFriend($idUser, $idFriend) {
-		$qwe = \DB::table('friends')->where([['friend_one',$idUser],['friend_two',$idFriend]])->orWhere([['friend_two',$idUser],['friend_one',$idFriend]])->update(['status' => 1]);;
+		$qwe = \DB::table('friends')->where([['friend_one',$idUser],['friend_two',$idFriend]])->orWhere([['friend_two',$idUser],['friend_one',$idFriend]])->update(['status' => 1]);
 		return true;
 	}
 

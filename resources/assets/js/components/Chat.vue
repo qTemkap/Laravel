@@ -9,13 +9,13 @@
             </div>
             <div class="col-sm-4">
                 <div class="text-center">
-                    <h3>Search people</h3>
-                    <input placeholder="Your friend" type="text" class="form-control" v-model='namePeople' @keyup.enter="searchPeople">
+                    <h3>Поиск людей</h3>
+                    <input placeholder="Ваш друг" type="text" class="form-control" v-model='namePeople' @keyup.enter="searchPeople">
                     <br>
                     <ul v-if="peoples.length > 0" class="list-group text-left">
                         <li v-for="(people, key) in peoples" class="list-group-item d-flex justify-content-between align-items-left">
                             {{people.name}}
-                            <span class="badge badge-primary badge-pill" data-toggle="modal" data-target="#exampleModal" v-on:click="showModal(key)">send mail</span>
+                            <span class="badge badge-primary badge-pill" data-toggle="modal" data-target="#exampleModal" v-on:click="showModal(key)">отправить письмо</span>
                         </li>
                     </ul>  
                 </div>                
@@ -26,7 +26,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title" id="exampleModalLabel">
-                            Send mail for your friends
+                            Отправьте письмо ваши друзьям
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -35,11 +35,11 @@
                     <div class="modal-body">
                         <textarea class="form-control" rows="10" v-model='textMail'></textarea>
                         <br>
-                        <input placeholder="Your email" type="text" class="form-control" v-model='emailMail'>
+                        <input placeholder="Ваша почта" type="text" class="form-control" v-model='emailMail'>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" v-on:click="SendMail()">Send</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                        <button type="button" class="btn btn-primary" v-on:click="SendMail()">Отправить</button>
                     </div>
                 </div>
             </div>

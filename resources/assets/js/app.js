@@ -26,6 +26,7 @@ Vue.component('newmess', require('./components/NewMessage.vue'));
 Vue.component('search', require('./components/Search.vue'));
 Vue.component('friends', require('./components/Friends.vue'));
 Vue.component('group', require('./components/Group.vue'));
+Vue.component('debits', require('./components/Debits.vue'));
 
 const app = new Vue({
     el: '#app'

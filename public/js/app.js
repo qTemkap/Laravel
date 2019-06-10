@@ -4759,6 +4759,7 @@ Vue.component('newmess', __webpack_require__(99));
 Vue.component('search', __webpack_require__(102));
 Vue.component('friends', __webpack_require__(105));
 Vue.component('group', __webpack_require__(108));
+Vue.component('debits', __webpack_require__(123));
 
 var app = new Vue({
   el: '#app'
@@ -54181,7 +54182,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "col-sm-4" }, [
         _c("div", { staticClass: "text-center" }, [
-          _c("h3", [_vm._v("Search people")]),
+          _c("h3", [_vm._v("Поиск людей")]),
           _vm._v(" "),
           _c("input", {
             directives: [
@@ -54193,7 +54194,7 @@ var render = function() {
               }
             ],
             staticClass: "form-control",
-            attrs: { placeholder: "Your friend", type: "text" },
+            attrs: { placeholder: "Ваш друг", type: "text" },
             domProps: { value: _vm.namePeople },
             on: {
               keyup: function($event) {
@@ -54247,7 +54248,7 @@ var render = function() {
                             }
                           }
                         },
-                        [_vm._v("send mail")]
+                        [_vm._v("отправить письмо")]
                       )
                     ]
                   )
@@ -54313,7 +54314,7 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { placeholder: "Your email", type: "text" },
+                  attrs: { placeholder: "Ваша почта", type: "text" },
                   domProps: { value: _vm.emailMail },
                   on: {
                     input: function($event) {
@@ -54333,7 +54334,7 @@ var render = function() {
                     staticClass: "btn btn-secondary",
                     attrs: { type: "button", "data-dismiss": "modal" }
                   },
-                  [_vm._v("Close")]
+                  [_vm._v("Закрыть")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -54347,7 +54348,7 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("Send")]
+                  [_vm._v("Отправить")]
                 )
               ])
             ])
@@ -54368,7 +54369,7 @@ var staticRenderFns = [
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
         [
           _vm._v(
-            "\n                        Send mail for your friends\n                        "
+            "\n                        Отправьте письмо ваши друзьям\n                        "
           ),
           _c(
             "button",
@@ -54864,10 +54865,7 @@ var render = function() {
               ],
               staticClass:
                 "form-control form-control-lg form-control-borderless",
-              attrs: {
-                type: "search",
-                placeholder: "Search topics or keywords"
-              },
+              attrs: { type: "search", placeholder: "Поиск друзей" },
               domProps: { value: _vm.textName },
               on: {
                 keyup: function($event) {
@@ -54926,7 +54924,7 @@ var render = function() {
                                     }
                                   }
                                 },
-                                [_vm._v("Add Friend")]
+                                [_vm._v("Добавить")]
                               )
                             ])
                           : _vm._e(),
@@ -54937,14 +54935,14 @@ var render = function() {
                                 "button",
                                 {
                                   staticClass: "btn btn-primary pull-right",
-                                  attrs: { title: "Cancel request" },
+                                  attrs: { title: "Отменить заявку" },
                                   on: {
                                     click: function($event) {
                                       _vm.deleteRequest(user.id, key)
                                     }
                                   }
                                 },
-                                [_vm._v("Request")]
+                                [_vm._v("Заявка")]
                               )
                             ])
                           : _vm._e(),
@@ -54963,8 +54961,11 @@ var render = function() {
                               [
                                 _c(
                                   "button",
-                                  { staticClass: "btn btn-primary pull-right" },
-                                  [_vm._v("Friend")]
+                                  {
+                                    staticClass: "btn btn-primary pull-right",
+                                    attrs: { title: "Удалить" }
+                                  },
+                                  [_vm._v("Друзья")]
                                 )
                               ]
                             )
@@ -55176,6 +55177,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['friends'],
@@ -55237,6 +55239,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
+    _c("br"),
+    _vm._v(" "),
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
         _c("div", { staticClass: "panel panel-default" }, [
@@ -55267,7 +55271,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\r\n                                        Friends\r\n                                    "
+                            "\r\n                                        Друзья\r\n                                    "
                           )
                         ]
                       )
@@ -55287,7 +55291,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\r\n                                        Request(send)\r\n                                    "
+                            "\r\n                                        Исходящие заявки\r\n                                    "
                           )
                         ]
                       )
@@ -55307,7 +55311,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\r\n                                        Request(in)\r\n                                    "
+                            "\r\n                                        Входящие заявки\r\n                                    "
                           )
                         ]
                       )
@@ -55426,7 +55430,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\r\n                                                    Cancel\r\n                                                "
+                                    "\r\n                                                    Отменить\r\n                                                "
                                   )
                                 ]
                               ),
@@ -55445,7 +55449,7 @@ var render = function() {
                                 },
                                 [
                                   _vm._v(
-                                    "\r\n                                                    Add\r\n                                                "
+                                    "\r\n                                                    Добавить\r\n                                                "
                                   )
                                 ]
                               )
@@ -55473,7 +55477,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "m-portlet__head-title" }, [
         _c("h3", { staticClass: "m-portlet__head-text" }, [
           _vm._v(
-            "\r\n                                    User Progress\r\n                                "
+            "\r\n                                    Список\r\n                                "
           )
         ])
       ])
@@ -55506,7 +55510,7 @@ var staticRenderFns = [
         },
         [
           _vm._v(
-            "\r\n                                                    Deleted\r\n                                                "
+            "\r\n                                                    Удалить\r\n                                                "
           )
         ]
       )
@@ -55539,7 +55543,7 @@ var staticRenderFns = [
         },
         [
           _vm._v(
-            "\r\n                                                    Cancel\r\n                                                "
+            "\r\n                                                    Отменить\r\n                                                "
           )
         ]
       )
@@ -55654,7 +55658,7 @@ exports = module.exports = __webpack_require__(31)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -55912,12 +55916,58 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['group'],
     data: function data() {
         return {
+            showGroup: true,
             info: [],
             friends: [],
             users_groupe: [],
@@ -55936,7 +55986,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             actionProd: '',
             users_to_produtcs: [],
             actionCheck: '',
-            listPrice: []
+            listPrice: [],
+            listDebts: []
         };
     },
     mounted: function mounted() {},
@@ -56066,6 +56117,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         Run: function Run() {
             axios.post('/setPay', { id_group: this.info.id }).then(function (respons) {});
+        },
+        toggleDiv: function toggleDiv() {
+            var _this11 = this;
+
+            if (this.showGroup == true) {
+                axios.post('/getPay', { id_group: this.info.id }).then(function (respons) {
+                    _this11.listDebts = respons.data;
+                    console.log(respons.data);
+                });
+                this.showGroup = false;
+            } else {
+                this.showGroup = true;
+            }
         }
     }
 });
@@ -56086,11 +56150,25 @@ var render = function() {
         _c("div", { staticClass: "panel panel-default" }, [
           _c("div", { staticClass: "panel-heading" }, [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-sm-6" }, [
+              _c("div", { staticClass: "col-sm-5" }, [
                 _vm._v(_vm._s(_vm.info.name_group))
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-sm-2" }, [
+              _c("div", { staticClass: "col-sm-3" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success btn-sm",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        _vm.toggleDiv()
+                      }
+                    }
+                  },
+                  [_vm._v("Долги")]
+                ),
+                _vm._v(" "),
                 _c(
                   "button",
                   {
@@ -56103,6 +56181,16 @@ var render = function() {
                     }
                   },
                   [_vm._v("Расчитать")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success btn-sm",
+                    attrs: { type: "button" },
+                    on: { click: function($event) {} }
+                  },
+                  [_vm._v("Чат")]
                 )
               ]),
               _vm._v(" "),
@@ -56131,343 +56219,451 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "panel-body" }, [
-            _vm._m(1),
-            _vm._v(" "),
-            _c("div", { staticClass: "row" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "col-sm-8",
-                  staticStyle: { "border-right": "solid black 1px" }
-                },
-                [
-                  _c("div", { staticClass: "col-sm-6" }, [
-                    _c(
-                      "ul",
-                      { staticClass: "list-group" },
-                      _vm._l(_vm.buysList, function(buy, key) {
-                        return _c(
-                          "a",
-                          {
-                            staticClass:
-                              "list-group-item list-group-item-action",
-                            class: { active: _vm.activeBuy === "btn" + key },
-                            attrs: { href: "#" },
-                            on: {
-                              click: function($event) {
-                                _vm.ShowListProduct(buy.id, key)
-                                _vm.activeBuy = "btn" + key
-                                _vm.activeProd = ""
-                                _vm.GetAllUsers()
-                              }
-                            }
-                          },
-                          [_vm._v(_vm._s(buy.name_buy))]
-                        )
-                      })
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-success btn-sm",
-                        attrs: {
-                          type: "button",
-                          "data-toggle": "modal",
-                          "data-target": "#buyModal"
-                        }
-                      },
-                      [_vm._v("Добавить покупку")]
-                    )
-                  ]),
+            !_vm.showGroup
+              ? _c("div", { staticClass: "debts" }, [
+                  _vm._m(1),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "col-sm-6" },
-                    _vm._l(_vm.buysList, function(buy, key) {
-                      return buy.ViewProducts == 2
-                        ? _c(
-                            "div",
-                            {
-                              staticClass: "tab-pane ",
-                              attrs: {
-                                id: "list-home",
-                                role: "",
-                                "aria-labelledby": "list-home-list"
-                              }
-                            },
-                            [
-                              _c(
-                                "ul",
-                                { staticClass: "list-group" },
-                                _vm._l(_vm.products_list, function(
-                                  product,
-                                  keyp
-                                ) {
-                                  return _c(
-                                    "a",
-                                    {
-                                      staticClass:
-                                        "list-group-item list-group-item-action",
-                                      class: {
-                                        active:
-                                          _vm.activeProd ===
-                                          "btnBuy" + key + "Prod" + keyp
-                                      },
-                                      attrs: { href: "#" },
-                                      on: {
-                                        click: function($event) {
-                                          _vm.activeProd =
-                                            "btnBuy" + key + "Prod" + keyp
-                                          _vm.GetListUsersToProducts(product.id)
-                                        }
-                                      }
-                                    },
-                                    [
-                                      _vm._v(
-                                        "\r\n                                            " +
-                                          _vm._s(product.name_products) +
-                                          " - " +
-                                          _vm._s(product.price) +
-                                          "\r\n                                        "
-                                      )
-                                    ]
-                                  )
-                                })
-                              ),
-                              _vm._v(" "),
-                              _c("br"),
-                              _vm._v(" "),
-                              _c(
-                                "button",
-                                {
-                                  staticClass: "btn btn-success btn-sm",
-                                  attrs: {
-                                    type: "button",
-                                    "data-toggle": "modal",
-                                    "data-target": "#productModal"
-                                  }
-                                },
-                                [_vm._v("Добавить товар")]
-                              )
-                            ]
-                          )
-                        : _vm._e()
-                    })
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "col-sm-4",
-                  staticStyle: { "border-left": "solid black 1px" }
-                },
-                [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "tab-pane active",
-                      attrs: { id: "m_widget4_tab1_content" }
-                    },
-                    [
+                  _c("div", { staticClass: "row " }, [
+                    _c("div", { staticClass: "col-sm-12" }, [
                       _c(
-                        "div",
-                        { staticClass: "m-widget4 m-widget4--progress" },
-                        [
-                          _vm.activeBuy && !_vm.activeProd
-                            ? _c(
-                                "button",
+                        "ul",
+                        { staticClass: "list-group text-center" },
+                        _vm._l(_vm.listDebts, function(debt, key) {
+                          return _c("li", { staticClass: "list-group-item" }, [
+                            _vm._v(
+                              "\r\n\t\t\t\t\t\t\t\t\t \t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t"
+                            ),
+                            _c("div", { staticClass: "col-sm-3 text-center" }, [
+                              _vm._v(
+                                "\r\n\t\t\t                    \t\t\t" +
+                                  _vm._s(debt.name1) +
+                                  "\r\n\t\t\t                    \t\t"
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass: "col-sm-4 text-center",
+                                staticStyle: {
+                                  "border-left": "solid black 1px"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\r\n\t\t\t                    \t\t\t" +
+                                    _vm._s(debt.debit) +
+                                    "\r\n\t\t\t                    \t\t"
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass: "col-sm-4 text-center",
+                                staticStyle: {
+                                  "border-left": "solid black 1px"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  "\r\n\t\t\t                    \t\t\t" +
+                                    _vm._s(debt.name2) +
+                                    "\r\n\t\t\t                    \t\t"
+                                )
+                              ]
+                            )
+                          ])
+                        })
+                      )
+                    ])
+                  ])
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.showGroup
+              ? _c("div", { staticClass: "group" }, [
+                  _vm._m(2),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "div",
+                      {
+                        staticClass: "col-sm-8",
+                        staticStyle: { "border-right": "solid black 1px" }
+                      },
+                      [
+                        _c("div", { staticClass: "col-sm-6" }, [
+                          _c(
+                            "ul",
+                            { staticClass: "list-group" },
+                            _vm._l(_vm.buysList, function(buy, key) {
+                              return _c(
+                                "a",
                                 {
-                                  staticClass: "btn btn-success btn-sm",
-                                  attrs: { type: "button" },
+                                  staticClass:
+                                    "list-group-item list-group-item-action",
+                                  class: {
+                                    active: _vm.activeBuy === "btn" + key
+                                  },
+                                  attrs: { href: "#" },
                                   on: {
                                     click: function($event) {
-                                      _vm.SavePrice()
+                                      _vm.ShowListProduct(buy.id, key)
+                                      _vm.activeBuy = "btn" + key
+                                      _vm.activeProd = ""
+                                      _vm.GetAllUsers()
                                     }
                                   }
                                 },
-                                [_vm._v("Сохранить")]
+                                [_vm._v(_vm._s(buy.name_buy))]
                               )
-                            : _vm._e(),
+                            })
+                          ),
                           _vm._v(" "),
-                          _vm._l(_vm.allusers_groupe, function(user, key) {
-                            return _vm.activeBuy && !_vm.activeProd
-                              ? _c("div", [
-                                  _c(
-                                    "div",
-                                    { staticClass: "m-widget4__item" },
-                                    [
-                                      _vm._m(2, true),
-                                      _vm._v(" "),
-                                      _c(
-                                        "div",
-                                        { staticClass: "m-widget4__info" },
-                                        [
-                                          _c(
-                                            "span",
-                                            { staticClass: "m-widget4__title" },
-                                            [
-                                              _vm._v(
-                                                "\r\n                                                    " +
-                                                  _vm._s(user.name) +
-                                                  "\r\n                                                "
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "div",
-                                        { staticClass: "m-widget4__progress" },
-                                        [
-                                          _c("div", {}, [
-                                            _c("input", {
-                                              directives: [
-                                                {
-                                                  name: "model",
-                                                  rawName: "v-model",
-                                                  value: _vm.listPrice[key],
-                                                  expression: "listPrice[key]"
-                                                }
-                                              ],
-                                              staticClass: "form-control",
-                                              attrs: {
-                                                type: "text",
-                                                id: "price" + key,
-                                                placeholder: "Price"
-                                              },
-                                              domProps: {
-                                                value: _vm.listPrice[key]
-                                              },
-                                              on: {
-                                                input: function($event) {
-                                                  if ($event.target.composing) {
-                                                    return
-                                                  }
-                                                  _vm.$set(
-                                                    _vm.listPrice,
-                                                    key,
-                                                    $event.target.value
-                                                  )
-                                                }
-                                              }
-                                            })
-                                          ])
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ])
-                              : _vm._e()
-                          }),
-                          _vm._v(" "),
-                          _vm._l(_vm.users_to_produtcs, function(user, key) {
-                            return _vm.activeProd
-                              ? _c("div", [
-                                  _c(
-                                    "div",
-                                    { staticClass: "m-widget4__item" },
-                                    [
-                                      _vm._m(3, true),
-                                      _vm._v(" "),
-                                      _c(
-                                        "div",
-                                        { staticClass: "m-widget4__info" },
-                                        [
-                                          _c(
-                                            "span",
-                                            { staticClass: "m-widget4__title" },
-                                            [
-                                              _vm._v(
-                                                "\r\n                                                    " +
-                                                  _vm._s(user.name) +
-                                                  "\r\n                                                "
-                                              )
-                                            ]
-                                          )
-                                        ]
-                                      ),
-                                      _vm._v(" "),
-                                      _c("div", {
-                                        staticClass: "m-widget4__progress"
-                                      }),
-                                      _vm._v(" "),
-                                      _c(
-                                        "div",
-                                        { staticClass: "m-widget4__ext" },
-                                        [
-                                          _c(
-                                            "a",
-                                            {
-                                              staticClass:
-                                                "m-btn m-btn--hover-brand m-btn--pill btn btn-sm btn-secondary",
-                                              attrs: { href: "#" }
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-success btn-sm",
+                              attrs: {
+                                type: "button",
+                                "data-toggle": "modal",
+                                "data-target": "#buyModal"
+                              }
+                            },
+                            [_vm._v("Добавить покупку")]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          { staticClass: "col-sm-6" },
+                          _vm._l(_vm.buysList, function(buy, key) {
+                            return buy.ViewProducts == 2
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "tab-pane ",
+                                    attrs: {
+                                      id: "list-home",
+                                      role: "",
+                                      "aria-labelledby": "list-home-list"
+                                    }
+                                  },
+                                  [
+                                    _c(
+                                      "ul",
+                                      { staticClass: "list-group" },
+                                      _vm._l(_vm.products_list, function(
+                                        product,
+                                        keyp
+                                      ) {
+                                        return _c(
+                                          "a",
+                                          {
+                                            staticClass:
+                                              "list-group-item list-group-item-action",
+                                            class: {
+                                              active:
+                                                _vm.activeProd ===
+                                                "btnBuy" + key + "Prod" + keyp
                                             },
-                                            [
-                                              user.status == 2
-                                                ? _c("toggle-button", {
-                                                    attrs: {
-                                                      id:
-                                                        "request" +
-                                                        user.id_products_to_users,
-                                                      value: false,
-                                                      color: "#82C7EB",
-                                                      sync: true,
-                                                      labels: true
-                                                    },
-                                                    on: {
-                                                      change: function($event) {
-                                                        _vm.SetStatusProd(
-                                                          user.id_products_to_users,
-                                                          $event
-                                                        )
-                                                      }
-                                                    }
-                                                  })
-                                                : _vm._e(),
-                                              _vm._v(" "),
-                                              user.status == 1
-                                                ? _c("toggle-button", {
-                                                    attrs: {
-                                                      id:
-                                                        "request" +
-                                                        user.id_products_to_users,
-                                                      value: true,
-                                                      color: "#82C7EB",
-                                                      sync: true,
-                                                      labels: true
-                                                    },
-                                                    on: {
-                                                      change: function($event) {
-                                                        _vm.SetStatusProd(
-                                                          user.id_products_to_users,
-                                                          $event
-                                                        )
-                                                      }
-                                                    }
-                                                  })
-                                                : _vm._e()
-                                            ],
-                                            1
-                                          )
-                                        ]
-                                      )
-                                    ]
-                                  )
-                                ])
+                                            attrs: { href: "#" },
+                                            on: {
+                                              click: function($event) {
+                                                _vm.activeProd =
+                                                  "btnBuy" + key + "Prod" + keyp
+                                                _vm.GetListUsersToProducts(
+                                                  product.id
+                                                )
+                                              }
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\r\n                                                " +
+                                                _vm._s(product.name_products) +
+                                                " - " +
+                                                _vm._s(product.price) +
+                                                "\r\n                                                "
+                                            ),
+                                            _c(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "btn btn-danger btn-sm float-right",
+                                                attrs: { type: "button" }
+                                              },
+                                              [_vm._v("Удалить")]
+                                            )
+                                          ]
+                                        )
+                                      })
+                                    ),
+                                    _vm._v(" "),
+                                    _c("br"),
+                                    _vm._v(" "),
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-success btn-sm",
+                                        attrs: {
+                                          type: "button",
+                                          "data-toggle": "modal",
+                                          "data-target": "#productModal"
+                                        }
+                                      },
+                                      [_vm._v("Добавить товар")]
+                                    )
+                                  ]
+                                )
                               : _vm._e()
                           })
-                        ],
-                        2
-                      )
-                    ]
-                  )
-                ]
-              )
-            ])
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      {
+                        staticClass: "col-sm-4",
+                        staticStyle: { "border-left": "solid black 1px" }
+                      },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass: "tab-pane active",
+                            attrs: { id: "m_widget4_tab1_content" }
+                          },
+                          [
+                            _c(
+                              "div",
+                              { staticClass: "m-widget4 m-widget4--progress" },
+                              [
+                                _vm.activeBuy && !_vm.activeProd
+                                  ? _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-success btn-sm",
+                                        attrs: { type: "button" },
+                                        on: {
+                                          click: function($event) {
+                                            _vm.SavePrice()
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Сохранить")]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _vm._l(_vm.allusers_groupe, function(
+                                  user,
+                                  key
+                                ) {
+                                  return _vm.activeBuy && !_vm.activeProd
+                                    ? _c("div", [
+                                        _c(
+                                          "div",
+                                          { staticClass: "m-widget4__item" },
+                                          [
+                                            _vm._m(3, true),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass: "m-widget4__info"
+                                              },
+                                              [
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    staticClass:
+                                                      "m-widget4__title"
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\r\n                                                        " +
+                                                        _vm._s(user.name) +
+                                                        "\r\n                                                    "
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "m-widget4__progress"
+                                              },
+                                              [
+                                                _c("div", {}, [
+                                                  _c("input", {
+                                                    directives: [
+                                                      {
+                                                        name: "model",
+                                                        rawName: "v-model",
+                                                        value:
+                                                          _vm.listPrice[key],
+                                                        expression:
+                                                          "listPrice[key]"
+                                                      }
+                                                    ],
+                                                    staticClass: "form-control",
+                                                    attrs: {
+                                                      type: "text",
+                                                      id: "price" + key,
+                                                      placeholder: "Price"
+                                                    },
+                                                    domProps: {
+                                                      value: _vm.listPrice[key]
+                                                    },
+                                                    on: {
+                                                      input: function($event) {
+                                                        if (
+                                                          $event.target
+                                                            .composing
+                                                        ) {
+                                                          return
+                                                        }
+                                                        _vm.$set(
+                                                          _vm.listPrice,
+                                                          key,
+                                                          $event.target.value
+                                                        )
+                                                      }
+                                                    }
+                                                  })
+                                                ])
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ])
+                                    : _vm._e()
+                                }),
+                                _vm._v(" "),
+                                _vm._l(_vm.users_to_produtcs, function(
+                                  user,
+                                  key
+                                ) {
+                                  return _vm.activeProd
+                                    ? _c("div", [
+                                        _c(
+                                          "div",
+                                          { staticClass: "m-widget4__item" },
+                                          [
+                                            _vm._m(4, true),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              {
+                                                staticClass: "m-widget4__info"
+                                              },
+                                              [
+                                                _c(
+                                                  "span",
+                                                  {
+                                                    staticClass:
+                                                      "m-widget4__title"
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\r\n                                                        " +
+                                                        _vm._s(user.name) +
+                                                        "\r\n                                                    "
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            _vm._v(" "),
+                                            _c("div", {
+                                              staticClass: "m-widget4__progress"
+                                            }),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              { staticClass: "m-widget4__ext" },
+                                              [
+                                                _c(
+                                                  "a",
+                                                  {
+                                                    staticClass:
+                                                      "m-btn m-btn--hover-brand m-btn--pill btn btn-sm btn-secondary",
+                                                    attrs: { href: "#" }
+                                                  },
+                                                  [
+                                                    user.status == 2
+                                                      ? _c("toggle-button", {
+                                                          attrs: {
+                                                            id:
+                                                              "request" +
+                                                              user.id_products_to_users,
+                                                            value: false,
+                                                            color: "#82C7EB",
+                                                            sync: true,
+                                                            labels: true
+                                                          },
+                                                          on: {
+                                                            change: function(
+                                                              $event
+                                                            ) {
+                                                              _vm.SetStatusProd(
+                                                                user.id_products_to_users,
+                                                                $event
+                                                              )
+                                                            }
+                                                          }
+                                                        })
+                                                      : _vm._e(),
+                                                    _vm._v(" "),
+                                                    user.status == 1
+                                                      ? _c("toggle-button", {
+                                                          attrs: {
+                                                            id:
+                                                              "request" +
+                                                              user.id_products_to_users,
+                                                            value: true,
+                                                            color: "#82C7EB",
+                                                            sync: true,
+                                                            labels: true
+                                                          },
+                                                          on: {
+                                                            change: function(
+                                                              $event
+                                                            ) {
+                                                              _vm.SetStatusProd(
+                                                                user.id_products_to_users,
+                                                                $event
+                                                              )
+                                                            }
+                                                          }
+                                                        })
+                                                      : _vm._e()
+                                                  ],
+                                                  1
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ])
+                                    : _vm._e()
+                                })
+                              ],
+                              2
+                            )
+                          ]
+                        )
+                      ]
+                    )
+                  ])
+                ])
+              : _vm._e()
           ])
         ])
       ])
@@ -56491,74 +56687,84 @@ var render = function() {
           { staticClass: "modal-dialog", attrs: { role: "document" } },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(4),
+              _vm._m(5),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.productName,
-                      expression: "productName"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { placeholder: "Name", type: "text" },
-                  domProps: { value: _vm.productName },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                _c("div", { staticClass: "row" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.productName,
+                        expression: "productName"
                       }
-                      _vm.productName = $event.target.value
+                    ],
+                    staticClass: "form-control",
+                    attrs: { placeholder: "Название", type: "text" },
+                    domProps: { value: _vm.productName },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.productName = $event.target.value
+                      }
                     }
-                  }
-                }),
+                  })
+                ]),
                 _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.productDesc,
-                      expression: "productDesc"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { placeholder: "Description", type: "text" },
-                  domProps: { value: _vm.productDesc },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.productDesc = $event.target.value
-                    }
-                  }
-                }),
+                _c("br"),
                 _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.productPrice,
-                      expression: "productPrice"
-                    }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { placeholder: "Price", type: "text" },
-                  domProps: { value: _vm.productPrice },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+                _c("div", { staticClass: "row" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.productDesc,
+                        expression: "productDesc"
                       }
-                      _vm.productPrice = $event.target.value
+                    ],
+                    staticClass: "form-control",
+                    attrs: { placeholder: "Описание", type: "text" },
+                    domProps: { value: _vm.productDesc },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.productDesc = $event.target.value
+                      }
                     }
-                  }
-                })
+                  })
+                ]),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("div", { staticClass: "row" }, [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.productPrice,
+                        expression: "productPrice"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { placeholder: "Цена", type: "text" },
+                    domProps: { value: _vm.productPrice },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.productPrice = $event.target.value
+                      }
+                    }
+                  })
+                ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "modal-footer" }, [
@@ -56568,7 +56774,7 @@ var render = function() {
                     staticClass: "btn btn-secondary",
                     attrs: { type: "button", "data-dismiss": "modal" }
                   },
-                  [_vm._v("Close")]
+                  [_vm._v("Закрыть")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -56582,7 +56788,7 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("Add")]
+                  [_vm._v("Добавить")]
                 )
               ])
             ])
@@ -56609,7 +56815,7 @@ var render = function() {
           { staticClass: "modal-dialog", attrs: { role: "document" } },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(5),
+              _vm._m(6),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
                 _c("input", {
@@ -56622,7 +56828,7 @@ var render = function() {
                     }
                   ],
                   staticClass: "form-control",
-                  attrs: { placeholder: "Name", type: "text" },
+                  attrs: { placeholder: "Название", type: "text" },
                   domProps: { value: _vm.nameBuy },
                   on: {
                     input: function($event) {
@@ -56642,7 +56848,7 @@ var render = function() {
                     staticClass: "btn btn-secondary",
                     attrs: { type: "button", "data-dismiss": "modal" }
                   },
-                  [_vm._v("Close")]
+                  [_vm._v("Закрыть")]
                 ),
                 _vm._v(" "),
                 _c(
@@ -56656,7 +56862,7 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("Add")]
+                  [_vm._v("Добавить")]
                 )
               ])
             ])
@@ -56683,7 +56889,7 @@ var render = function() {
           { staticClass: "modal-dialog", attrs: { role: "document" } },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(6),
+              _vm._m(7),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
                 _c(
@@ -56699,7 +56905,7 @@ var render = function() {
                       _vm._l(_vm.users_groupe, function(user, key) {
                         return _c("div", [
                           _c("div", { staticClass: "m-widget4__item" }, [
-                            _vm._m(7, true),
+                            _vm._m(8, true),
                             _vm._v(" "),
                             _c("div", { staticClass: "m-widget4__info" }, [
                               _c("span", { staticClass: "m-widget4__title" }, [
@@ -56736,7 +56942,7 @@ var render = function() {
                                         }
                                       }
                                     },
-                                    [_vm._v("DEL")]
+                                    [_vm._v("Удалить")]
                                   )
                                 ]
                               )
@@ -56749,7 +56955,7 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _vm._m(8)
+              _vm._m(9)
             ])
           ]
         )
@@ -56774,7 +56980,7 @@ var render = function() {
           { staticClass: "modal-dialog", attrs: { role: "document" } },
           [
             _c("div", { staticClass: "modal-content" }, [
-              _vm._m(9),
+              _vm._m(10),
               _vm._v(" "),
               _c("div", { staticClass: "modal-body" }, [
                 _c(
@@ -56790,7 +56996,7 @@ var render = function() {
                       _vm._l(_vm.friends, function(friend, key) {
                         return _c("div", [
                           _c("div", { staticClass: "m-widget4__item" }, [
-                            _vm._m(10, true),
+                            _vm._m(11, true),
                             _vm._v(" "),
                             _c("div", { staticClass: "m-widget4__info" }, [
                               _c("span", { staticClass: "m-widget4__title" }, [
@@ -56829,7 +57035,7 @@ var render = function() {
                                             }
                                           }
                                         },
-                                        [_vm._v("ADD")]
+                                        [_vm._v("Добавить")]
                                       )
                                     : _vm._e()
                                 ]
@@ -56843,7 +57049,7 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _vm._m(11)
+              _vm._m(12)
             ])
           ]
         )
@@ -56869,6 +57075,31 @@ var staticRenderFns = [
         },
         [_vm._v("Список участников")]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row " }, [
+      _vm._v("\r\n                    \t\t \r\n                    \t\t"),
+      _c("div", { staticClass: "col-sm-3 text-center" }, [
+        _vm._v(
+          "\r\n                    \t\t\tДолжник\r\n                    \t\t"
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-4 text-center" }, [
+        _vm._v(
+          "\r\n                    \t\t\tСумма\r\n                    \t\t"
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-4 text-center" }, [
+        _vm._v(
+          "\r\n                    \t\t\tПолучатель\r\n                    \t\t"
+        )
+      ])
     ])
   },
   function() {
@@ -56921,7 +57152,7 @@ var staticRenderFns = [
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
         [
           _vm._v(
-            "\r\n                        Add product\r\n                        "
+            "\r\n                        Добавить товар\r\n                        "
           ),
           _c(
             "button",
@@ -56949,7 +57180,7 @@ var staticRenderFns = [
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
         [
           _vm._v(
-            "\r\n                        Add buy\r\n                        "
+            "\r\n                        Добавить покупку\r\n                        "
           ),
           _c(
             "button",
@@ -56977,7 +57208,7 @@ var staticRenderFns = [
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
         [
           _vm._v(
-            "\r\n                        List users for groupe\r\n                        "
+            "\r\n                        Участники группы\r\n                        "
           ),
           _c(
             "button",
@@ -57019,7 +57250,7 @@ var staticRenderFns = [
           staticClass: "btn btn-secondary",
           attrs: { type: "button", "data-dismiss": "modal" }
         },
-        [_vm._v("Close")]
+        [_vm._v("Закрыть")]
       )
     ])
   },
@@ -57033,7 +57264,7 @@ var staticRenderFns = [
         { staticClass: "modal-title", attrs: { id: "exampleModalLabel" } },
         [
           _vm._v(
-            "\r\n                        Send mail for your friends\r\n                        "
+            "\r\n                        Друзья\r\n                        "
           ),
           _c(
             "button",
@@ -57075,7 +57306,7 @@ var staticRenderFns = [
           staticClass: "btn btn-secondary",
           attrs: { type: "button", "data-dismiss": "modal" }
         },
-        [_vm._v("Close")]
+        [_vm._v("Закрыть")]
       )
     ])
   }
@@ -57094,6 +57325,504 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 114 */,
+/* 115 */,
+/* 116 */,
+/* 117 */,
+/* 118 */,
+/* 119 */,
+/* 120 */,
+/* 121 */,
+/* 122 */,
+/* 123 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(124)
+/* template */
+var __vue_template__ = __webpack_require__(125)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Debits.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-54187b04", Component.options)
+  } else {
+    hotAPI.reload("data-v-54187b04", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 124 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['debit', 'credit'],
+    data: function data() {
+        return {
+            debitList: [],
+            creditList: [],
+            listPay: []
+        };
+    },
+    mounted: function mounted() {},
+
+    created: function created() {
+        this.debitList = this.debit;
+        this.creditList = this.credit;
+        console.log(this.creditList);
+    },
+    methods: {
+        SetPay: function SetPay(id_request) {
+            axios.post('/setCredit', { id_request: id_request, price: this.listPay[id_request] }).then(function (respons) {
+                console.log(respons.data);
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 125 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("br"),
+    _vm._v(" "),
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
+        _c("div", { staticClass: "panel panel-default" }, [
+          _c("div", { staticClass: "m-portlet m-portlet--full-height " }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "m-portlet__body" }, [
+              _c("div", { staticClass: "tab-content" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "tab-pane active",
+                    attrs: { id: "m_widget4_tab1_content" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "m-widget4 m-widget4--progress" },
+                      _vm._l(_vm.debitList, function(pay, key) {
+                        return _c("div", [
+                          _c("div", { staticClass: "m-widget4__item" }, [
+                            _vm._m(1, true),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "m-widget4__info" }, [
+                              _c("span", { staticClass: "m-widget4__title" }, [
+                                _vm._v(
+                                  "\n                                                    " +
+                                    _vm._s(pay.name) +
+                                    "\n                                                "
+                                )
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "m-widget4__progress" }),
+                            _vm._v(" "),
+                            _vm._m(2, true)
+                          ])
+                        ])
+                      })
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "tab-pane",
+                    attrs: { id: "m_widget4_tab2_content" }
+                  },
+                  [
+                    _c(
+                      "div",
+                      { staticClass: "m-widget4 m-widget4--progress" },
+                      _vm._l(_vm.creditList, function(pay, key) {
+                        return _c("div", [
+                          _c("div", { staticClass: "m-widget4__item" }, [
+                            _vm._m(3, true),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "m-widget4__info" }, [
+                              _c("span", { staticClass: "m-widget4__title" }, [
+                                _vm._v(
+                                  "\n                                                    " +
+                                    _vm._s(pay.name) +
+                                    "\n                                                "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "m-widget4__title" }, [
+                                _vm._v(
+                                  "\n                                                        \n                                                "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  staticClass: "m-widget4__title",
+                                  staticStyle: { color: "red" }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                                    - " +
+                                      _vm._s(pay.debit) +
+                                      "\n                                                "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "m-widget4__title" }, [
+                                _vm._v(
+                                  "\n                                                        \n                                                "
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "span",
+                                {
+                                  staticClass: "m-widget4__title",
+                                  staticStyle: { color: "green" }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                                    + " +
+                                      _vm._s(pay.credit) +
+                                      "\n                                                "
+                                  )
+                                ]
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "m-widget4__progress" }, [
+                              _c("div", { staticClass: "row" }, [
+                                _c("div", { staticClass: "col-md-4" }, [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.listPay[pay.id],
+                                        expression: "listPay[pay.id]"
+                                      }
+                                    ],
+                                    staticClass: "form-control",
+                                    attrs: {
+                                      type: "text",
+                                      placeholder: "Сумма"
+                                    },
+                                    domProps: { value: _vm.listPay[pay.id] },
+                                    on: {
+                                      input: function($event) {
+                                        if ($event.target.composing) {
+                                          return
+                                        }
+                                        _vm.$set(
+                                          _vm.listPay,
+                                          pay.id,
+                                          $event.target.value
+                                        )
+                                      }
+                                    }
+                                  })
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "col-md-4" }, [
+                                  _c(
+                                    "button",
+                                    {
+                                      staticClass: "btn btn-success btn-sm",
+                                      attrs: { type: "button" },
+                                      on: {
+                                        click: function($event) {
+                                          _vm.SetPay(pay.id)
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("Оплатил")]
+                                  )
+                                ])
+                              ])
+                            ])
+                          ])
+                        ])
+                      })
+                    )
+                  ]
+                )
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "m-portlet__head" }, [
+      _c("div", { staticClass: "m-portlet__head-caption" }, [
+        _c("div", { staticClass: "m-portlet__head-title" }, [
+          _c("h3", { staticClass: "m-portlet__head-text" }, [
+            _vm._v(
+              "\n                                    Список долгов\n                                "
+            )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "m-portlet__head-tools" }, [
+        _c(
+          "ul",
+          {
+            staticClass:
+              "nav nav-pills nav-pills--brand m-nav-pills--align-right m-nav-pills--btn-pill m-nav-pills--btn-sm",
+            attrs: { role: "tablist" }
+          },
+          [
+            _c("li", { staticClass: "nav-item m-tabs__item active" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link m-tabs__link active",
+                  attrs: {
+                    "data-toggle": "tab",
+                    href: "#m_widget4_tab1_content",
+                    role: "tab"
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                                        Одолжил\n                                    "
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-item m-tabs__item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "nav-link m-tabs__link",
+                  attrs: {
+                    "data-toggle": "tab",
+                    href: "#m_widget4_tab2_content",
+                    role: "tab"
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n                                        Должен\n                                    "
+                  )
+                ]
+              )
+            ])
+          ]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "m-widget4__img m-widget4__img--pic" }, [
+      _c("img", {
+        attrs: {
+          src: "http://bootdey.com/img/Content/avatar/avatar1.png",
+          alt: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "m-widget4__ext" }, [
+      _c(
+        "a",
+        {
+          staticClass:
+            "m-btn m-btn--hover-brand m-btn--pill btn btn-sm btn-secondary",
+          attrs: { href: "#" }
+        },
+        [
+          _vm._v(
+            "\n                                                    Удалить\n                                                "
+          )
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "m-widget4__img m-widget4__img--pic" }, [
+      _c("img", {
+        attrs: {
+          src: "http://bootdey.com/img/Content/avatar/avatar1.png",
+          alt: ""
+        }
+      })
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-54187b04", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

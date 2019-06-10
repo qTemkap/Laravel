@@ -103,6 +103,12 @@ Route::post('/get_users_to_products', 'ProductsController@GetListUsersToProducts
 
 Route::post('/setPay', 'GroupsController@setPay');
 
+Route::post('/getPay', 'GroupsController@getDebts');
+
+Route::get('/debits', 'DebitsController@index');
+
+Route::post('/setCredit', 'DebitsController@setCredit');
+
 // Route::post('privat_mess', function(Illuminate\Http\Request $request) {
 	// App\Events\PrivateChat::dispatch($request->all());
 // });
@@ -112,7 +118,6 @@ Route::post('new_massage', function(Illuminate\Http\Request $request) {
 });
 
 Route::post('messages', function(Illuminate\Http\Request $request) {
-
 	App\Events\Message::dispatch($request->all());
 });
 

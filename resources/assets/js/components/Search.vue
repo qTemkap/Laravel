@@ -4,7 +4,7 @@
         <div class="row justify-content-center">     
             <div class="card-body row no-gutters align-items-center">
                 <div class="col-lg-10">
-                    <input class="form-control form-control-lg form-control-borderless" v-model='textName' type="search" placeholder="Search topics or keywords" @keyup.enter="searchFriend">
+                    <input class="form-control form-control-lg form-control-borderless" v-model='textName' type="search" placeholder="Поиск друзей" @keyup.enter="searchFriend">
                 </div>
                 <div class="col-lg-12" id="people">
                     <div class="row">
@@ -19,7 +19,7 @@
                                             <h5><a :href='"user/"+user.id' class="profile-link">{{user.name}}</a></h5>
                                         </div>
                                         <div class="col-md-3 col-sm-3" v-if="!user.status">
-                                            <button class="btn btn-primary pull-right" id="add_friend" v-on:click="addFriend(user.id, key)">Add Friend</button>
+                                            <button class="btn btn-primary pull-right" id="add_friend" v-on:click="addFriend(user.id, key)">Добавить</button>
                                         </div>                                        
                                         <!-- <div class="col-md-3 col-sm-3" v-if="(user.status == '1' && user.friend_one == userAuth)">
                                             <button class="btn btn-primary pull-right" title="Cancel request">Sent request</button>
@@ -28,10 +28,10 @@
                                             <button class="btn btn-primary pull-right" title="Cancel request">Request incoming</button>
                                         </div> -->
                                         <div class="col-md-3 col-sm-3" v-if="user.status == '1'">
-                                            <button class="btn btn-primary pull-right" v-on:click="deleteRequest(user.id, key)" title="Cancel request">Request</button>
+                                            <button class="btn btn-primary pull-right" v-on:click="deleteRequest(user.id, key)" title="Отменить заявку">Заявка</button>
                                         </div>
                                         <div class="col-md-3 col-sm-3" v-on:click="delFriend(user.id, key)" v-if="user.status == '2'">
-                                            <button class="btn btn-primary pull-right">Friend</button>
+                                            <button class="btn btn-primary pull-right" title="Удалить">Друзья</button>
                                         </div>
                                     </div>
                                 </div>
